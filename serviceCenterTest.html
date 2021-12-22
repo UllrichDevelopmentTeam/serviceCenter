@@ -169,10 +169,30 @@
     
 
     <!-- claim section -->
+    <span id="claimsSection" class="hidden">
+        <!-- look into reformatting / editing this -->
+        <p>
+            If you think that you have an insurance claim on your hands, we have the Ullrich Insurance Claims Concierge Program. We will give you guidance and do all that we can to help you.
+        </p>
+        <p>
+        Here are the steps: <br>
+        1) If you think that you have a claim, call us immediately and we will talk it through with you. <br>
+        -Too often, a client will file a claim for something very small. At the end of the day, they get a little bit of money from the insurance company but their insurance premiums increase even more than what they received! We will help you know if you should file a claim or not. <br>
 
+        Ultimately, the insurance company will have a claims adjustor who will work with you directly. We are always here or you, though. We have a direct line to the managers of the claims department, so if you need us, we can get involved.
+        </p>
+    </span>
 
 
     <!-- billing section -->
+
+    <span id="billingSection" class="hidden">
+        <p>
+            If you need to make a payment, please call our office at 303-425-7568 or follow the instructions on the bill that you received from your insurance company. <br><br>
+            If you have billing questions, you can call our office or you can send your question to us with this form.
+        </p>
+        <!-- Put the billing form here in the wordpress site -->
+    </span>
 
     <br><br>
 
@@ -190,6 +210,14 @@
 
         document.getElementById("homeCard").addEventListener("click", function () {
             clickHome();
+        });
+
+        document.getElementById("claimCard").addEventListener("click", function () {
+            clickClaim();
+        });
+
+        document.getElementById("billingCard").addEventListener("click", function () {
+            clickBilling();
         });
 
         document.getElementById("backButton").addEventListener("click", function () {
@@ -261,7 +289,6 @@
                     document.getElementById("formLink").setAttribute("href", "#");
                     linkButton.classList.add("hidden");
                 }
-
             }
 
         }
@@ -279,7 +306,7 @@
 
         function clickHome() {
             let gridCards = document.getElementById("gridCards");
-            let autoForm = document.getElementById("autoForm");
+            let homeForm = document.getElementById("homeForm");
             let backButton = document.getElementById("backButton");
 
             gridCards.classList.add("hidden");
@@ -288,11 +315,37 @@
 
         }
 
+        function clickClaim() {
+            let gridCards = document.getElementById("gridCards");
+            let claimsSection = document.getElementById("claimsSection");
+            let backButton = document.getElementById("backButton");
+
+            gridCards.classList.add("hidden");
+            claimsSection.classList.remove("hidden");
+            goBack.classList.remove("hidden");
+
+        }
+
+        function clickBilling() {
+            let gridCards = document.getElementById("gridCards");
+            let billingSection = document.getElementById("billingSection");
+            let backButton = document.getElementById("backButton");
+
+            gridCards.classList.add("hidden");
+            billingSection.classList.remove("hidden");
+            goBack.classList.remove("hidden");
+
+        }
+
+
+
         // Resets everything back when the back button is clicked
         function backButton() {
             let gridCards = document.getElementById("gridCards");
             let autoForm = document.getElementById("autoForm");
             let homeForm = document.getElementById("homeForm");
+            let claimsSection = document.getElementById("claimsSection");
+            let billingSection = document.getElementById("billingSection");
             let goBack = document.getElementById("goBack");
             let formLink = document.getElementById("formLink");
 
@@ -308,6 +361,15 @@
             if (!(formLink.classList.contains("hidden"))) {
                 formLink.classList.add("hidden");
             }
+
+            if (!(claimsSection.classList.contains("hidden"))) {
+                claimsSection.classList.add("hidden");
+            }
+
+            if (!(billingSection.classList.contains("hidden"))) {
+                billingSection.classList.add("hidden");
+            }
+
             // reset the form, so the values are the default values again
             autoForm.reset();
             homeForm.reset();
