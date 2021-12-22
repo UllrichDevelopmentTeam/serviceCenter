@@ -141,10 +141,15 @@
         <label for="auto">Select an Auto Form:</label>
         <select name="auto" id="auto" onchange="changeLink();" class="">
             <option value="default"></option>
-            <option value="addDriver">Add Driver</option>
-            <option value="addVehicle">Add Vehicle</option>
-            <option value="removeDriver">Remove Driver</option>
-            <option value="removeVehicle">Remove Vehicle</option>
+            <option value="addRemoveDriver">Add and/or Remove a Driver</option>
+            <option value="addRemoveVehicle">Add and/or Remove Vehicle</option>
+            <option value="cancelAuto">Cancel an Auto Policy</option>
+            <option value="excludeDriver">Exclude a Driver</option>
+            <option value="collectorCar">Collector Car Policy</option>
+            <option value="motorcycle">Add Motorcycle/ATV</option>
+            <option value="comprehensive">Request to Put a Vehicle on Comprehensive Only Coverage</option>
+            <option value="salvaged">Salvaged Title</option>
+            <option value="trailer">Add a Trailer</option>
         </select>
     </form>
 
@@ -161,6 +166,7 @@
         </select>
     </form>
     
+
     <!-- claim section -->
 
 
@@ -171,6 +177,7 @@
 
     <a href="#" id="formLink" target="_blank" class="hidden button">Go to Form</a>
 
+    <!-- TODO: Write a comment for each function that explains what it does  -->
     <script>
         document.getElementById("formLink").addEventListener("click", function () {
             changeLink();
@@ -188,33 +195,53 @@
             backButton();
         });
 
-
+        // This function changes the link that the button goes to based on what form the user selects
         function changeLink() {
             var linkButton = document.getElementById("formLink");
             // for auto
             if (homeForm.classList.contains("hidden")) {
                 var selected = document.getElementById("auto").options[document.getElementById("auto").selectedIndex].value;
-                if (selected === "addDriver") {
-                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/add-a-driver/");
+                if (selected === "addRemoveDriver") {
+                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/add-and-or-remove-a-driver/");
                     linkButton.classList.remove("hidden");
                 }
-                else if (selected === "addVehicle") {
-                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/add-a-vehicle-external-form/");
+                else if (selected === "addRemoveVehicle") {
+                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/add-and-or-remove-a-vehicle/");
                     linkButton.classList.remove("hidden");
                 }
-                else if (selected === "removeDriver") {
-                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/remove-a-driver/");
+                else if (selected === "cancelAuto") {
+                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/cancel-an-auto-policy/");
                     linkButton.classList.remove("hidden");
                 }
-                else if (selected === "removeVehicle") {
-                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/remove-a-vehicle/");
+                else if (selected === "excludeDriver") {
+                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/exclude-a-driver/");
+                    linkButton.classList.remove("hidden");
+                }
+                else if (selected === "collectorCar") {
+                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/collector-car-policy/");
+                    linkButton.classList.remove("hidden");
+                }
+                else if (selected === "motorcycle") {
+                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/motorcycle-form/");
+                    linkButton.classList.remove("hidden");
+                }
+                else if (selected === "comprehensive") {
+                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/request-to-put-a-vehicle-on-comprehensive-only-coverage-external/");
+                    linkButton.classList.remove("hidden");
+                }
+                else if (selected === "salvaged") {
+                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/salvagedtitle/");
+                    linkButton.classList.remove("hidden");
+                }
+                else if (selected === "trailer") {
+                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/add-a-trailer-external/");
                     linkButton.classList.remove("hidden");
                 }
                 else if (selected === "default") {
                     document.getElementById("formLink").setAttribute("href", "#");
                     linkButton.classList.add("hidden");
                 }
-                // For home:
+            // For home:
             } else {
                 var selected = document.getElementById("home").options[document.getElementById("home").selectedIndex].value;
                 if (selected === "addressChange") {
@@ -260,6 +287,7 @@
 
         }
 
+        // Resets everything back when the back button is clicked
         function backButton() {
             let gridCards = document.getElementById("gridCards");
             let autoForm = document.getElementById("autoForm");
