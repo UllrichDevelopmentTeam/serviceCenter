@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" id="font-awesome-4-css"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=4.7.0" type="text/css"
+        media="all">
+    <title>Document</title>
+    <style>
+        /* TODO: When incorporating into the main site, use the sites default styling for things like buttons and h1/h2/font/etc */
+        /* change transparency on hover */
+        /* TODO: make the color the correct one!!! */
+        /* need to put the text align in here!!! */
+        /* FIXME: make them look better on mobile / smaller screens */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            background-color: #87ad91;
+            width: 250px;
+            height: 250px;
+            text-align: center;
+            transition: all .2s ease-in-out;
+        }
+
+        /* make the image lighter and grow, when hovered over */
+        .card:hover {
+            opacity: 0.85;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+
+        .card h1 {
+            padding-top: 50px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
+
+        i {
+            color: white;
+        }
+
+        /* make this look the same as the other buttons!!! */
+        /* use the button class on wordpress, DONT USE THIS ONE */
+        #formLink,
+        button {
+            text-decoration: none;
+            color: white;
+            background-color: #87ad91;
+            padding: 15px 23px 15px 23px;
+            ;
+        }
+
+        #formLink:hover,
+        button:hover {
+            background-color: #87ad9194;
+        }
+
+        /* DON'T add this to wordpress site, this is just to make the font look better! */
+        body {
+            font-family: sans-serif;
+        }
+
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: stretch;
+        }
+
+        /* need to use both visibility hidden and display none or there will be weird spacing */
+        .hidden {
+            visibility: hidden;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- TODO: Put a heading here! -->
+    <h1>Policy Service Center</h1>
+    <p>
+        <!-- I updated this text, do I want to use the commented updated one? -->
+        <!-- Ullrich Insurance Agency truly cares about you. 
+        We want to make sure that you get the service that you need. 
+        Please select one of the boxes below. 
+        Then select and fill out the self service form below to get all the information to us that we need to take care of you. -->
+        Ullrich Insurance Agency truly cares about you. 
+        We want to make sure that you get the service that you need. 
+        Please fill out the self service form below to get all the information to us that we need to take care of you. 
+        <br><br>
+        You can always call our office, but sometimes it is just easier to fill out a form. Thank you!
+
+    </p>
+    <div class="grid" id="gridCards">
+        <div class="card" id="autoCard">
+            <div class="containter">
+                <h1> Auto </h1>
+                <i class="fa fa-car fa-3x" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <div class="card" id="homeCard">
+            <div class="containter">
+                <h1> Home </h1>
+                <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+            </div>
+        </div>
+        
+        <div class="card" id="claimCard">
+            <div class="containter">
+                <h1> File a Claim </h1>
+                <i class="fa fa-file-text fa-3x" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <div class="card" id="billingCard">
+            <div class="containter">
+                <h1> Billing </h1>
+                <i class="fa fa-money fa-3x" aria-hidden="true"></i>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <!-- Go back button -->
+    <span id="goBack" class="hidden button">
+        <button id="backButton"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go Back</button>
+        <br> <br>
+    </span>
+
+    <!-- TODO: Add everything that Jared wants!!! -->
+    <!-- auto form section -->
+    <form id="autoForm" class="hidden">
+        <!-- TODO: put instructions here!!!  -->
+        <label for="auto">Select an Auto Form:</label>
+        <select name="auto" id="auto" onchange="changeLink();" class="">
+            <option value="default"></option>
+            <option value="addDriver">Add Driver</option>
+            <option value="addVehicle">Add Vehicle</option>
+            <option value="removeDriver">Remove Driver</option>
+            <option value="removeVehicle">Remove Vehicle</option>
+        </select>
+    </form>
+
+    <!-- TODO: Add everything that Jared wants!!! -->
+    <!-- home form section -->
+    <form id="homeForm" class="hidden">
+        <!-- TODO: put instructions here!!!  -->
+        <label for="home">Select a Home Form:</label>
+        <select name="home" id="home" onchange="changeLink();" class="">
+            <option value="default"></option>
+            <option value="addressChange">Address Change</option>
+            <option value="solarPanels">Adding Solar Panels</option>
+            <option value="cancelHome">Cancel a Home Policy</option>
+        </select>
+    </form>
+    
+    <!-- claim section -->
+
+
+
+    <!-- billing section -->
+
+    <br><br>
+
+    <a href="#" id="formLink" target="_blank" class="hidden button">Go to Form</a>
+
+    <script>
+        document.getElementById("formLink").addEventListener("click", function () {
+            changeLink();
+        });
+
+        document.getElementById("autoCard").addEventListener("click", function () {
+            clickAuto();
+        });
+
+        document.getElementById("homeCard").addEventListener("click", function () {
+            clickHome();
+        });
+
+        document.getElementById("backButton").addEventListener("click", function () {
+            backButton();
+        });
+
+
+        function changeLink() {
+            var linkButton = document.getElementById("formLink");
+            // for auto
+            if (homeForm.classList.contains("hidden")) {
+                var selected = document.getElementById("auto").options[document.getElementById("auto").selectedIndex].value;
+                if (selected === "addDriver") {
+                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/add-a-driver/");
+                    linkButton.classList.remove("hidden");
+                }
+                else if (selected === "addVehicle") {
+                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/add-a-vehicle-external-form/");
+                    linkButton.classList.remove("hidden");
+                }
+                else if (selected === "removeDriver") {
+                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/remove-a-driver/");
+                    linkButton.classList.remove("hidden");
+                }
+                else if (selected === "removeVehicle") {
+                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/remove-a-vehicle/");
+                    linkButton.classList.remove("hidden");
+                }
+                else if (selected === "default") {
+                    document.getElementById("formLink").setAttribute("href", "#");
+                    linkButton.classList.add("hidden");
+                }
+                // For home:
+            } else {
+                var selected = document.getElementById("home").options[document.getElementById("home").selectedIndex].value;
+                if (selected === "addressChange") {
+                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/address-change-2/");
+                    linkButton.classList.remove("hidden");
+                }
+                else if (selected === "solarPanels") {
+                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/adding-solar-panels/");
+                    linkButton.classList.remove("hidden");
+                }
+                else if (selected === "cancelHome") {
+                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/cancel-a-home-policy/");
+                    linkButton.classList.remove("hidden");
+                }
+                else if (selected === "default") {
+                    document.getElementById("formLink").setAttribute("href", "#");
+                    linkButton.classList.add("hidden");
+                }
+
+            }
+
+        }
+
+        function clickAuto() {
+            let gridCards = document.getElementById("gridCards");
+            let autoForm = document.getElementById("autoForm");
+            let backButton = document.getElementById("backButton");
+
+            gridCards.classList.add("hidden");
+            autoForm.classList.remove("hidden");
+            goBack.classList.remove("hidden");
+
+        }
+
+        function clickHome() {
+            let gridCards = document.getElementById("gridCards");
+            let autoForm = document.getElementById("autoForm");
+            let backButton = document.getElementById("backButton");
+
+            gridCards.classList.add("hidden");
+            homeForm.classList.remove("hidden");
+            goBack.classList.remove("hidden");
+
+        }
+
+        function backButton() {
+            let gridCards = document.getElementById("gridCards");
+            let autoForm = document.getElementById("autoForm");
+            let homeForm = document.getElementById("homeForm");
+            let goBack = document.getElementById("goBack");
+            let formLink = document.getElementById("formLink");
+
+            gridCards.classList.remove("hidden");
+            goBack.classList.add("hidden");
+
+            if (homeForm.classList.contains("hidden")) {
+                autoForm.classList.add("hidden");
+            } else {
+                homeForm.classList.add("hidden");
+            }
+
+            if (!(formLink.classList.contains("hidden"))) {
+                formLink.classList.add("hidden");
+            }
+            // reset the form, so the values are the default values again
+            autoForm.reset();
+            homeForm.reset();
+        }
+    </script>
+</body>
+
+</html>
