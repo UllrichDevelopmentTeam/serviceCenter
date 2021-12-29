@@ -21,6 +21,9 @@
             width: 250px;
             height: 250px;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             transition: all .2s ease-in-out;
             margin-top: 20px;
         }
@@ -37,7 +40,6 @@
         }
 
         .card h1 {
-            padding-top: 50px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
         }
@@ -65,6 +67,10 @@
         /* DON'T add this to wordpress site, this is just to make the font look better! */
         body {
             font-family: sans-serif;
+            /* Photo by Rich Martello on Unsplash */
+            background-image: url("colorado.jpg") ;
+            background-size: cover;
+            background-repeat: no-repeat;
         }
 
         .grid {
@@ -79,10 +85,18 @@
             visibility: hidden;
             display: none;
         }
+
+        /* Testing this!!! */
+        .greyBackground{
+            background-color: rgba(180, 180, 180, 0.75);
+            padding: 10px;
+        }
     </style>
 </head>
 
 <body>
+    <!-- FIXME: Make the greyBackground look better -->
+    <div class="greyBackground">
     <h1>Policy Service Center</h1>
     <p>
         <!-- I updated this text, do I want to use the commented updated one? -->
@@ -97,35 +111,35 @@
         You can always call our office, but sometimes it is just easier to fill out a form. Thank you!
 
     </p>
+
     <div class="grid" id="gridCards">
         <div class="card" id="autoCard">
             <div class="containter">
-                <h1> Auto </h1>
                 <i class="fa fa-car fa-3x" aria-hidden="true"></i>
+                <h1> Auto </h1>
             </div>
         </div>
 
         <div class="card" id="homeCard">
             <div class="containter">
-                <h1> Home </h1>
                 <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+                <h1> Home </h1>
             </div>
         </div>
         
         <div class="card" id="claimCard">
             <div class="containter">
-                <h1> File a Claim </h1>
                 <i class="fa fa-file-text fa-3x" aria-hidden="true"></i>
+                <h1> File a Claim </h1>
             </div>
         </div>
 
         <div class="card" id="billingCard">
             <div class="containter">
-                <h1> Billing </h1>
                 <i class="fa fa-money fa-3x" aria-hidden="true"></i>
+                <h1> Billing </h1>      
             </div>
         </div>
-
     </div>
     <br>
     <!-- Go back button -->
@@ -198,7 +212,8 @@
     <br><br>
 
     <a href="#" id="formLink" target="_blank" class="hidden button">Go to Form</a>
-
+    <br><br>
+    </div>
     <!-- TODO: Write a comment for each function that explains what it does  -->
     <script>
         document.getElementById("formLink").addEventListener("click", function () {
