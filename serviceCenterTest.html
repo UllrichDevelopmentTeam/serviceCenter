@@ -1,396 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" id="font-awesome-4-css"
-        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=4.7.0" type="text/css"
-        media="all">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      id="font-awesome-4-css"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=4.7.0"
+      type="text/css"
+      media="all"
+    />
     <title>Document</title>
     <style>
-        /* TODO: When incorporating into the main site, use the sites default styling for things like buttons and h1/h2/font/etc */
-        /* change transparency on hover */
-        /* TODO: make the color the correct one!!! */
-        /* need to put the text align in here!!! */
-        /* FIXME: make them look better on mobile / smaller screens */
-        .card {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            background-color: #87ad91;
-            width: 250px;
-            height: 250px;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all .2s ease-in-out;
-            margin-top: 20px;
-        }
+      /* TODO: When incorporating into the main site, use the sites default styling for things like buttons and h1/h2/font/etc */
+      /* change transparency on hover */
+      /* TODO: make the color the correct one!!! */
+      /* need to put the text align in here!!! */
+      /* FIXME: make them look better on mobile / smaller screens */
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        background-color: #87ad91;
+        width: 250px;
+        height: 250px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.2s ease-in-out;
+        margin-top: 20px;
+      }
 
-        /* make the image lighter and grow, when hovered over */
-        .card:hover {
-            opacity: 0.85;
-            transform: scale(1.05);
-            cursor: pointer;
-        }
+      /* make the image lighter and grow, when hovered over */
+      .card:hover {
+        opacity: 0.85;
+        transform: scale(1.05);
+        cursor: pointer;
+      }
 
-        .container {
-            padding: 2px 16px;
-        }
+      .container {
+        padding: 2px 16px;
+      }
 
-        .card h1 {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: white;
-        }
+      .card h1 {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+      }
 
-        i {
-            color: white;
-        }
+      i {
+        color: white;
+      }
 
-        /* make this look the same as the other buttons!!! */
-        /* use the button class on wordpress, DONT USE THIS ONE */
-        #formLink,
-        button {
-            text-decoration: none;
-            color: white;
-            background-color: #87ad91;
-            padding: 15px 23px 15px 23px;
-            ;
-        }
+      /* make this look the same as the other buttons!!! */
+      /* use the button class on wordpress, DONT USE THIS ONE */
+      #formLink,
+      button {
+        text-decoration: none;
+        color: white;
+        background-color: #87ad91;
+        padding: 15px 23px 15px 23px;
+      }
 
-        #formLink:hover,
-        button:hover {
-            background-color: #87ad9194;
-        }
+      #formLink:hover,
+      button:hover {
+        background-color: #87ad9194;
+      }
 
-        /* DON'T add this to wordpress site, this is just to make the font look better! */
-        body {
-            font-family: sans-serif;
-            /* Photo by Rich Martello on Unsplash */
-            background-image: url("colorado.jpg") ;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
+      /* DON'T add this to wordpress site, this is just to make the font look better! */
+      body {
+        font-family: sans-serif;
+        /* Photo by Rich Martello on Unsplash */
+        background-image: url("colorado.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
 
-        .grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-items: stretch;
-        }
+      .grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: stretch;
+      }
 
-        /* need to use both visibility hidden and display none or there will be weird spacing */
-        .hidden {
-            visibility: hidden;
-            display: none;
-        }
+      /* need to use both visibility hidden and display none or there will be weird spacing */
+      .hidden {
+        visibility: hidden;
+        display: none;
+      }
 
-        /* Testing this!!! */
-        .greyBackground{
-            background-color: rgba(180, 180, 180, 0.75);
-            padding: 10px;
-        }
+      /* Testing this!!! */
+      .greyBackground {
+        background-color: rgba(180, 180, 180, 0.75);
+        padding: 20px 10px;
+      }
+
+      label {
+        font-weight: 600;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- FIXME: Make the greyBackground look better -->
     <div class="greyBackground">
-    <h1>Policy Service Center</h1>
-    <p>
+      <h1>Policy Service Center</h1>
+      <p>
         <!-- I updated this text, do I want to use the commented updated one? -->
         <!-- Ullrich Insurance Agency truly cares about you. 
         We want to make sure that you get the service that you need. 
         Please select one of the boxes below. 
         Then select and fill out the self service form below to get all the information to us that we need to take care of you. -->
-        Ullrich Insurance Agency truly cares about you. 
-        We want to make sure that you get the service that you need. 
-        Please fill out the self service form below to get all the information to us that we need to take care of you. 
-        <br><br>
-        You can always call our office, but sometimes it is just easier to fill out a form. Thank you!
+        Ullrich Insurance Agency truly cares about you. We want to make sure
+        that you get the service that you need. Please fill out the self service
+        form below to get all the information to us that we need to take care of
+        you.
+        <br /><br />
+        You can always call our office, but sometimes it is just easier to fill
+        out a form. Thank you!
+      </p>
 
-    </p>
-
-    <div class="grid" id="gridCards">
+      <div class="grid" id="gridCards">
         <div class="card" id="autoCard">
-            <div class="containter">
-                <i class="fa fa-car fa-3x" aria-hidden="true"></i>
-                <h1> Auto </h1>
-            </div>
+          <div class="containter">
+            <i class="fa fa-car fa-3x" aria-hidden="true"></i>
+            <h1>Auto</h1>
+          </div>
         </div>
 
         <div class="card" id="homeCard">
-            <div class="containter">
-                <i class="fa fa-home fa-3x" aria-hidden="true"></i>
-                <h1> Home </h1>
-            </div>
+          <div class="containter">
+            <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+            <h1>Home</h1>
+          </div>
         </div>
-        
+
         <div class="card" id="claimCard">
-            <div class="containter">
-                <i class="fa fa-file-text fa-3x" aria-hidden="true"></i>
-                <h1> File a Claim </h1>
-            </div>
+          <div class="containter">
+            <i class="fa fa-file-text fa-3x" aria-hidden="true"></i>
+            <h1>File a Claim</h1>
+          </div>
         </div>
 
         <div class="card" id="billingCard">
-            <div class="containter">
-                <i class="fa fa-money fa-3x" aria-hidden="true"></i>
-                <h1> Billing </h1>      
-            </div>
+          <div class="containter">
+            <i class="fa fa-money fa-3x" aria-hidden="true"></i>
+            <h1>Billing</h1>
+          </div>
         </div>
-    </div>
-    <br>
-    <!-- Go back button -->
-    <span id="goBack" class="hidden">
-        <button id="backButton"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go Back</button>
-        <br> <br>
-    </span>
+      </div>
+      <br />
+      <!-- Go back button -->
+      <span id="goBack" class="hidden">
+        <button id="backButton">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i> Go Back
+        </button>
+        <br />
+        <br />
+      </span>
 
-    <!-- TODO: Add everything that Jared wants!!! -->
-    <!-- auto form section -->
-    <form id="autoForm" class="hidden">
+      <!-- TODO: Add everything that Jared wants!!! -->
+      <!-- auto form section -->
+      <form id="autoForm" class="hidden">
         <!-- Instructions for the user -->
-        <p>Please select a form from the dropdown below. Then click the "Go to Form" button. The form will open in a new window. To go back to the main service center page, click the go back button above.</p>
+        <p>
+          Please select a form from the dropdown below. Then click the "Go to
+          Form" button. The form will open in a new window. To go back to the
+          main service center page, click the "Go Back" button above.
+        </p>
         <label for="auto">Select an Auto Form:</label>
         <select name="auto" id="auto" onchange="changeLink();" class="">
-            <option value="default"></option>
-            <option value="addRemoveDriver">Add and/or Remove a Driver</option>
-            <option value="addRemoveVehicle">Add and/or Remove Vehicle</option>
-            <option value="cancelAuto">Cancel an Auto Policy</option>
-            <option value="excludeDriver">Exclude a Driver</option>
-            <option value="collectorCar">Collector Car Policy</option>
-            <option value="motorcycle">Add Motorcycle/ATV</option>
-            <option value="comprehensive">Request to Put a Vehicle on Comprehensive Only Coverage</option>
-            <option value="salvaged">Salvaged Title</option>
-            <option value="trailer">Add a Trailer</option>
+          <option value="default"></option>
+          <option value="addRemoveDriver">Add and/or Remove a Driver</option>
+          <option value="addRemoveVehicle">Add and/or Remove Vehicle</option>
+          <option value="cancelAuto">Cancel an Auto Policy</option>
+          <option value="excludeDriver">Exclude a Driver</option>
+          <option value="collectorCar">Collector Car Policy</option>
+          <option value="motorcycle">Add Motorcycle/ATV</option>
+          <option value="comprehensive">
+            Request to Put a Vehicle on Comprehensive Only Coverage
+          </option>
+          <option value="salvaged">Salvaged Title</option>
+          <option value="trailer">Add a Trailer</option>
         </select>
-    </form>
+      </form>
 
-    <!-- TODO: Add everything that Jared wants!!! -->
-    <!-- home form section -->
-    <form id="homeForm" class="hidden">
+      <!-- TODO: Add everything that Jared wants!!! -->
+      <!-- home form section -->
+      <form id="homeForm" class="hidden">
         <!-- Instructions for the user -->
-        <p>Please select a form from the dropdown below. Then click the "Go to Form" button. The form will open in a new window. To go back to the main service center page, click the go back button above.</p>
+        <p>
+          Please select a form from the dropdown below. Then click the "Go to
+          Form" button. The form will open in a new window. To go back to the
+          main service center page, click the "Go Back" button above.
+        </p>
         <label for="home">Select a Home Form:</label>
         <select name="home" id="home" onchange="changeLink();" class="">
-            <option value="default"></option>
-            <option value="addressChange">Address Change</option>
-            <option value="solarPanels">Adding Solar Panels</option>
-            <option value="cancelHome">Cancel a Home Policy</option>
+          <option value="default"></option>
+          <option value="addressChange">Address Change</option>
+          <option value="solarPanels">Adding Solar Panels</option>
+          <option value="cancelHome">Cancel a Home Policy</option>
         </select>
-    </form>
-    
+      </form>
 
-    <!-- claim section -->
-    <span id="claimsSection" class="hidden">
+      <!-- claim section -->
+      <span id="claimsSection" class="hidden">
         <!-- look into reformatting / editing this -->
         <p>
-            If you think that you have an insurance claim on your hands, we have the Ullrich Insurance Claims Concierge Program. We will give you guidance and do all that we can to help you.
+          If you think that you have an insurance claim on your hands, we have
+          the Ullrich Insurance Claims Concierge Program. We will give you
+          guidance and do all that we can to help you.
         </p>
+        <br />
         <p>
-        Here are the steps: <br>
-        1) If you think that you have a claim, call us immediately and we will talk it through with you. <br>
-        -Too often, a client will file a claim for something very small. At the end of the day, they get a little bit of money from the insurance company but their insurance premiums increase even more than what they received! We will help you know if you should file a claim or not. <br>
-
-        Ultimately, the insurance company will have a claims adjustor who will work with you directly. We are always here for you though. We have a direct line to the managers of the claims department, so if you need us, we can get involved.
+          Here are the steps: <br />
+          1) If you think that you have a claim, call us immediately and we will
+          talk it through with you. <br />
+          -Too often, a client will file a claim for something very small. At
+          the end of the day, they get a little bit of money from the insurance
+          company but their insurance premiums increase even more than what they
+          received! We will help you know if you should file a claim or not.
+          <br />
         </p>
-    </span>
-
-
-    <!-- billing section -->
-
-    <span id="billingSection" class="hidden">
+        <br />
         <p>
-            If you need to make a payment, please call our office at 303-425-7568 or follow the instructions on the bill that you received from your insurance company. <br><br>
-            If you have billing questions, you can call our office or you can send your question to us with this form.
+          Ultimately, the insurance company will have a claims adjustor who will
+          work with you directly. We are always here for you though. We have a
+          direct line to the managers of the claims department, so if you need
+          us, we can get involved.
+        </p>
+      </span>
+
+      <!-- billing section -->
+
+      <span id="billingSection" class="hidden">
+        <p>
+          If you need to make a payment, please call our office at 303-425-7568
+          or follow the instructions on the bill that you received from your
+          insurance company. <br /><br />
+          If you have billing questions, you can call our office or you can send
+          your question to us with this form:
         </p>
         <!-- Put the billing form here in the wordpress site -->
-    </span>
+      </span>
 
-    <br><br>
+      <br /><br />
 
-    <a href="#" id="formLink" target="_blank" class="hidden button">Go to Form</a>
-    <br><br>
+      <a href="#" id="formLink" target="_blank" class="hidden button"
+        >Go to Form</a
+      >
+      <br /><br />
     </div>
     <!-- TODO: Write a comment for each function that explains what it does  -->
     <script>
-        document.getElementById("formLink").addEventListener("click", function () {
-            changeLink();
+      document
+        .getElementById("formLink")
+        .addEventListener("click", function () {
+          changeLink();
         });
 
-        document.getElementById("autoCard").addEventListener("click", function () {
-            clickAuto();
+      document
+        .getElementById("autoCard")
+        .addEventListener("click", function () {
+          clickAuto();
         });
 
-        document.getElementById("homeCard").addEventListener("click", function () {
-            clickHome();
+      document
+        .getElementById("homeCard")
+        .addEventListener("click", function () {
+          clickHome();
         });
 
-        document.getElementById("claimCard").addEventListener("click", function () {
-            clickClaim();
+      document
+        .getElementById("claimCard")
+        .addEventListener("click", function () {
+          clickClaim();
         });
 
-        document.getElementById("billingCard").addEventListener("click", function () {
-            clickBilling();
+      document
+        .getElementById("billingCard")
+        .addEventListener("click", function () {
+          clickBilling();
         });
 
-        document.getElementById("backButton").addEventListener("click", function () {
-            backButton();
+      document
+        .getElementById("backButton")
+        .addEventListener("click", function () {
+          backButton();
         });
 
-        // This function changes the link that the button goes to based on what form the user selects
-        function changeLink() {
-            var linkButton = document.getElementById("formLink");
-            // for auto
-            if (homeForm.classList.contains("hidden")) {
-                var selected = document.getElementById("auto").options[document.getElementById("auto").selectedIndex].value;
-                if (selected === "addRemoveDriver") {
-                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/add-and-or-remove-a-driver/");
-                    linkButton.classList.remove("hidden");
-                }
-                else if (selected === "addRemoveVehicle") {
-                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/add-and-or-remove-a-vehicle/");
-                    linkButton.classList.remove("hidden");
-                }
-                else if (selected === "cancelAuto") {
-                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/cancel-an-auto-policy/");
-                    linkButton.classList.remove("hidden");
-                }
-                else if (selected === "excludeDriver") {
-                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/exclude-a-driver/");
-                    linkButton.classList.remove("hidden");
-                }
-                else if (selected === "collectorCar") {
-                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/collector-car-policy/");
-                    linkButton.classList.remove("hidden");
-                }
-                else if (selected === "motorcycle") {
-                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/motorcycle-form/");
-                    linkButton.classList.remove("hidden");
-                }
-                else if (selected === "comprehensive") {
-                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/request-to-put-a-vehicle-on-comprehensive-only-coverage-external/");
-                    linkButton.classList.remove("hidden");
-                }
-                else if (selected === "salvaged") {
-                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/salvagedtitle/");
-                    linkButton.classList.remove("hidden");
-                }
-                else if (selected === "trailer") {
-                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/add-a-trailer-external/");
-                    linkButton.classList.remove("hidden");
-                }
-                else if (selected === "default") {
-                    document.getElementById("formLink").setAttribute("href", "#");
-                    linkButton.classList.add("hidden");
-                }
-            // For home:
-            } else {
-                var selected = document.getElementById("home").options[document.getElementById("home").selectedIndex].value;
-                if (selected === "addressChange") {
-                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/address-change-2/");
-                    linkButton.classList.remove("hidden");
-                }
-                else if (selected === "solarPanels") {
-                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/adding-solar-panels/");
-                    linkButton.classList.remove("hidden");
-                }
-                else if (selected === "cancelHome") {
-                    document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/cancel-a-home-policy/");
-                    linkButton.classList.remove("hidden");
-                }
-                else if (selected === "default") {
-                    document.getElementById("formLink").setAttribute("href", "#");
-                    linkButton.classList.add("hidden");
-                }
-            }
+      // This function changes the link that the button goes to based on what form the user selects
+      function changeLink() {
+        var linkButton = document.getElementById("formLink");
+        // for auto
+        if (homeForm.classList.contains("hidden")) {
+          var selected =
+            document.getElementById("auto").options[
+              document.getElementById("auto").selectedIndex
+            ].value;
+          if (selected === "addRemoveDriver") {
+            document
+              .getElementById("formLink")
+              .setAttribute(
+                "href",
+                "https://www.ullrichinsurance.com/add-and-or-remove-a-driver/"
+              );
+            linkButton.classList.remove("hidden");
+          } else if (selected === "addRemoveVehicle") {
+            document
+              .getElementById("formLink")
+              .setAttribute(
+                "href",
+                "https://www.ullrichinsurance.com/add-and-or-remove-a-vehicle/"
+              );
+            linkButton.classList.remove("hidden");
+          } else if (selected === "cancelAuto") {
+            document
+              .getElementById("formLink")
+              .setAttribute(
+                "href",
+                "https://www.ullrichinsurance.com/cancel-an-auto-policy/"
+              );
+            linkButton.classList.remove("hidden");
+          } else if (selected === "excludeDriver") {
+            document
+              .getElementById("formLink")
+              .setAttribute(
+                "href",
+                "https://www.ullrichinsurance.com/exclude-a-driver/"
+              );
+            linkButton.classList.remove("hidden");
+          } else if (selected === "collectorCar") {
+            document
+              .getElementById("formLink")
+              .setAttribute(
+                "href",
+                "https://www.ullrichinsurance.com/collector-car-policy/"
+              );
+            linkButton.classList.remove("hidden");
+          } else if (selected === "motorcycle") {
+            document
+              .getElementById("formLink")
+              .setAttribute(
+                "href",
+                "https://www.ullrichinsurance.com/motorcycle-form/"
+              );
+            linkButton.classList.remove("hidden");
+          } else if (selected === "comprehensive") {
+            document
+              .getElementById("formLink")
+              .setAttribute(
+                "href",
+                "https://www.ullrichinsurance.com/request-to-put-a-vehicle-on-comprehensive-only-coverage-external/"
+              );
+            linkButton.classList.remove("hidden");
+          } else if (selected === "salvaged") {
+            document
+              .getElementById("formLink")
+              .setAttribute(
+                "href",
+                "https://www.ullrichinsurance.com/salvagedtitle/"
+              );
+            linkButton.classList.remove("hidden");
+          } else if (selected === "trailer") {
+            document
+              .getElementById("formLink")
+              .setAttribute(
+                "href",
+                "https://www.ullrichinsurance.com/add-a-trailer-external/"
+              );
+            linkButton.classList.remove("hidden");
+          } else if (selected === "default") {
+            document.getElementById("formLink").setAttribute("href", "#");
+            linkButton.classList.add("hidden");
+          }
+          // For home:
+        } else {
+          var selected =
+            document.getElementById("home").options[
+              document.getElementById("home").selectedIndex
+            ].value;
+          if (selected === "addressChange") {
+            document
+              .getElementById("formLink")
+              .setAttribute(
+                "href",
+                "https://www.ullrichinsurance.com/address-change-2/"
+              );
+            linkButton.classList.remove("hidden");
+          } else if (selected === "solarPanels") {
+            document
+              .getElementById("formLink")
+              .setAttribute(
+                "href",
+                "https://www.ullrichinsurance.com/adding-solar-panels/"
+              );
+            linkButton.classList.remove("hidden");
+          } else if (selected === "cancelHome") {
+            document
+              .getElementById("formLink")
+              .setAttribute(
+                "href",
+                "https://www.ullrichinsurance.com/cancel-a-home-policy/"
+              );
+            linkButton.classList.remove("hidden");
+          } else if (selected === "default") {
+            document.getElementById("formLink").setAttribute("href", "#");
+            linkButton.classList.add("hidden");
+          }
+        }
+      }
 
+      function clickAuto() {
+        let gridCards = document.getElementById("gridCards");
+        let autoForm = document.getElementById("autoForm");
+        let backButton = document.getElementById("backButton");
+
+        gridCards.classList.add("hidden");
+        autoForm.classList.remove("hidden");
+        goBack.classList.remove("hidden");
+      }
+
+      function clickHome() {
+        let gridCards = document.getElementById("gridCards");
+        let homeForm = document.getElementById("homeForm");
+        let backButton = document.getElementById("backButton");
+
+        gridCards.classList.add("hidden");
+        homeForm.classList.remove("hidden");
+        goBack.classList.remove("hidden");
+      }
+
+      function clickClaim() {
+        let gridCards = document.getElementById("gridCards");
+        let claimsSection = document.getElementById("claimsSection");
+        let backButton = document.getElementById("backButton");
+
+        gridCards.classList.add("hidden");
+        claimsSection.classList.remove("hidden");
+        goBack.classList.remove("hidden");
+      }
+
+      function clickBilling() {
+        let gridCards = document.getElementById("gridCards");
+        let billingSection = document.getElementById("billingSection");
+        let backButton = document.getElementById("backButton");
+
+        gridCards.classList.add("hidden");
+        billingSection.classList.remove("hidden");
+        goBack.classList.remove("hidden");
+      }
+
+      // Resets everything back when the back button is clicked
+      function backButton() {
+        let gridCards = document.getElementById("gridCards");
+        let autoForm = document.getElementById("autoForm");
+        let homeForm = document.getElementById("homeForm");
+        let claimsSection = document.getElementById("claimsSection");
+        let billingSection = document.getElementById("billingSection");
+        let goBack = document.getElementById("goBack");
+        let formLink = document.getElementById("formLink");
+
+        gridCards.classList.remove("hidden");
+        goBack.classList.add("hidden");
+
+        if (homeForm.classList.contains("hidden")) {
+          autoForm.classList.add("hidden");
+        } else {
+          homeForm.classList.add("hidden");
         }
 
-        function clickAuto() {
-            let gridCards = document.getElementById("gridCards");
-            let autoForm = document.getElementById("autoForm");
-            let backButton = document.getElementById("backButton");
-
-            gridCards.classList.add("hidden");
-            autoForm.classList.remove("hidden");
-            goBack.classList.remove("hidden");
-
+        if (!formLink.classList.contains("hidden")) {
+          formLink.classList.add("hidden");
         }
 
-        function clickHome() {
-            let gridCards = document.getElementById("gridCards");
-            let homeForm = document.getElementById("homeForm");
-            let backButton = document.getElementById("backButton");
-
-            gridCards.classList.add("hidden");
-            homeForm.classList.remove("hidden");
-            goBack.classList.remove("hidden");
-
+        if (!claimsSection.classList.contains("hidden")) {
+          claimsSection.classList.add("hidden");
         }
 
-        function clickClaim() {
-            let gridCards = document.getElementById("gridCards");
-            let claimsSection = document.getElementById("claimsSection");
-            let backButton = document.getElementById("backButton");
-
-            gridCards.classList.add("hidden");
-            claimsSection.classList.remove("hidden");
-            goBack.classList.remove("hidden");
-
+        if (!billingSection.classList.contains("hidden")) {
+          billingSection.classList.add("hidden");
         }
 
-        function clickBilling() {
-            let gridCards = document.getElementById("gridCards");
-            let billingSection = document.getElementById("billingSection");
-            let backButton = document.getElementById("backButton");
-
-            gridCards.classList.add("hidden");
-            billingSection.classList.remove("hidden");
-            goBack.classList.remove("hidden");
-
-        }
-
-
-
-        // Resets everything back when the back button is clicked
-        function backButton() {
-            let gridCards = document.getElementById("gridCards");
-            let autoForm = document.getElementById("autoForm");
-            let homeForm = document.getElementById("homeForm");
-            let claimsSection = document.getElementById("claimsSection");
-            let billingSection = document.getElementById("billingSection");
-            let goBack = document.getElementById("goBack");
-            let formLink = document.getElementById("formLink");
-
-            gridCards.classList.remove("hidden");
-            goBack.classList.add("hidden");
-
-            if (homeForm.classList.contains("hidden")) {
-                autoForm.classList.add("hidden");
-            } else {
-                homeForm.classList.add("hidden");
-            }
-
-            if (!(formLink.classList.contains("hidden"))) {
-                formLink.classList.add("hidden");
-            }
-
-            if (!(claimsSection.classList.contains("hidden"))) {
-                claimsSection.classList.add("hidden");
-            }
-
-            if (!(billingSection.classList.contains("hidden"))) {
-                billingSection.classList.add("hidden");
-            }
-
-            // reset the form, so the values are the default values again
-            autoForm.reset();
-            homeForm.reset();
-        }
+        // reset the form, so the values are the default values again
+        autoForm.reset();
+        homeForm.reset();
+      }
     </script>
-</body>
-
+  </body>
 </html>
