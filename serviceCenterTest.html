@@ -205,6 +205,7 @@
       <!-- claim section -->
       <span id="claimsSection" class="hidden">
         <!-- look into reformatting / editing this -->
+        <!-- Note the spacing here looks better on the actual wordpress site -->
         <p>
           If you think that you have an insurance claim on your hands, we have
           the Ullrich Insurance Claims Concierge Program. We will give you
@@ -252,48 +253,14 @@
     </div>
     <!-- TODO: Write a comment for each function that explains what it does  -->
     <script>
-      document
-        .getElementById("formLink")
-        .addEventListener("click", function () {
-          changeLink();
-        });
 
-      document
-        .getElementById("autoCard")
-        .addEventListener("click", function () {
-          clickAuto();
-        });
-
-      document
-        .getElementById("homeCard")
-        .addEventListener("click", function () {
-          clickHome();
-        });
-
-      document
-        .getElementById("claimCard")
-        .addEventListener("click", function () {
-          clickClaim();
-        });
-
-      document
-        .getElementById("billingCard")
-        .addEventListener("click", function () {
-          clickBilling();
-        });
-
-      document
-        .getElementById("backButton")
-        .addEventListener("click", function () {
-          backButton();
-        });
 
       // This function changes the link that the button goes to based on what form the user selects
       function changeLink() {
-        var linkButton = document.getElementById("formLink");
+        let linkButton = document.getElementById("formLink");
         // for auto
         if (homeForm.classList.contains("hidden")) {
-          var selected =
+          let selected =
             document.getElementById("auto").options[
               document.getElementById("auto").selectedIndex
             ].value;
@@ -375,7 +342,7 @@
           }
           // For home:
         } else {
-          var selected =
+          let selected =
             document.getElementById("home").options[
               document.getElementById("home").selectedIndex
             ].value;
@@ -485,6 +452,43 @@
         autoForm.reset();
         homeForm.reset();
       }
+
+      document
+        .getElementById("formLink")
+        .addEventListener("click", function () {
+          changeLink();
+        });
+
+      document
+        .getElementById("autoCard")
+        .addEventListener("click", function () {
+          clickAuto();
+        });
+
+      document
+        .getElementById("homeCard")
+        .addEventListener("click", function () {
+          clickHome();
+        });
+
+      document
+        .getElementById("claimCard")
+        .addEventListener("click", function () {
+          clickClaim();
+        });
+
+      document
+        .getElementById("billingCard")
+        .addEventListener("click", function () {
+          clickBilling();
+        });
+
+      document
+        .getElementById("backButton")
+        .addEventListener("click", function () {
+          backButton();
+        });
+
     </script>
   </body>
 </html>
