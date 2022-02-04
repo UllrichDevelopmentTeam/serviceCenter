@@ -82,6 +82,14 @@
         align-items: stretch;
       }
 
+      
+      /* @media only screen and (max-width: 1150px) {
+        .grid > div{
+          flex: 50%;
+        
+      }
+    } */
+
       /* need to use both visibility hidden and display none or there will be weird spacing */
       .hidden {
         visibility: hidden;
@@ -96,9 +104,12 @@
       } */
       .whiteBackgound {
         background-color: whitesmoke;
-        padding: 20px 10px;
+        padding: 20px 20px;
+        margin-top: 10px;
       }
-
+      .centered{
+        text-align: center;
+      }
       label {
         font-weight: 600;
       }
@@ -108,7 +119,7 @@
   <body>
   
     <div class="whiteBackgound">
-      <h1>Policy Service Center</h1>
+      <h1 class="centered">Policy Service Center</h1>
       <p>
         <!-- I updated this text, do I want to use the commented updated one? -->
         <!-- Ullrich Insurance Agency truly cares about you. 
@@ -185,8 +196,9 @@
             Request to Put a Vehicle on Comprehensive Only Coverage
           </option>
           <option value="salvaged">Salvaged Title</option>
-          <option value="trailer">Add a Trailer</option>
+          <option value="trailer">Add a Trailer</option>   
         </select>
+        <p>If you don’t see a form that applies to your situation, <a href="https://www.ullrichinsurance.com/contact/" target="_blank">click here</a></p>
       </form>
 
       <!-- TODO: Add everything that Jared wants!!! -->
@@ -205,6 +217,7 @@
           <option value="solarPanels">Adding Solar Panels</option>
           <option value="cancelHome">Cancel a Home Policy</option>
         </select>
+        <p>If you don’t see a form that applies to your situation, <a href="https://www.ullrichinsurance.com/contact/" target="_blank">click here</a></p>
       </form>
 
       <!-- claim section -->
