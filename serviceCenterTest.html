@@ -102,10 +102,22 @@
         background-color: rgba(180, 180, 180, 0.75);
         padding: 20px 10px;
       } */
-      .whiteBackgound {
+      .whiteBackground {
         background-color: whitesmoke;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        /* border-radius: 25px; */
         padding: 20px 20px;
         margin-top: 10px;
+      }
+      .main-title{
+        margin-top: 30px;
+        font-size: 2.75rem;
+        font-weight: 500;
+        color: white;
+      }
+      .help-text{
+        font-size: 1.4rem;
+        color: white;
       }
       .centered{
         text-align: center;
@@ -113,28 +125,38 @@
       label {
         font-weight: 600;
       }
+      .separator{
+            margin-top: 30px;
+            margin-bottom: 30px;
+            width: 75px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: whitesmoke;
+        }
+        
     </style>
   </head>
 
   <body>
-  
-    <div class="whiteBackgound">
-      <h1 class="centered">Policy Service Center</h1>
-      <p>
-        <!-- I updated this text, do I want to use the commented updated one? -->
-        <!-- Ullrich Insurance Agency truly cares about you. 
-        We want to make sure that you get the service that you need. 
-        Please select one of the boxes below. 
-        Then select and fill out the self service form below to get all the information to us that we need to take care of you. -->
-        Ullrich Insurance Agency truly cares about you. We want to make sure
-        that you get the service that you need. Please fill out the self service
-        form below to get all the information to us that we need to take care of
-        you.
-        <br /><br />
-        You can always call our office, but sometimes it is just easier to fill
-        out a form. Thank you!
-      </p>
-
+    <!-- Add the white backgorund dynamically -->
+    <div>
+        <h1 class="centered main-title">Policy Service Center</h1>
+        <hr class="separator">
+        <p class="help-text">
+          <!-- I updated this text, do I want to use the commented updated one? -->
+          <!-- Ullrich Insurance Agency truly cares about you. 
+          We want to make sure that you get the service that you need. 
+          Please select one of the boxes below. 
+          Then select and fill out the self service form below to get all the information to us that we need to take care of you. -->
+          Ullrich Insurance Agency truly cares about you. We want to make sure
+          that you get the service that you need. Please fill out the self service
+          form below to get all the information to us that we need to take care of
+          you.
+          <br /><br />
+          You can always call our office, but sometimes it is just easier to fill
+          out a form. Thank you!
+        </p>
+    <div id="main-content">
       <div class="grid" id="gridCards">
         <div class="card" id="autoCard">
           <div class="containter">
@@ -197,8 +219,8 @@
           </option>
           <option value="salvaged">Salvaged Title</option>
           <option value="trailer">Add a Trailer</option>   
+          <option value="contact">If you don’t see a form that applies to your situation, select this</option>   
         </select>
-        <p>If you don’t see a form that applies to your situation, <a href="https://www.ullrichinsurance.com/contact/" target="_blank">click here</a></p>
       </form>
 
       <!-- TODO: Add everything that Jared wants!!! -->
@@ -216,8 +238,8 @@
           <option value="addressChange">Address Change</option>
           <option value="solarPanels">Adding Solar Panels</option>
           <option value="cancelHome">Cancel a Home Policy</option>
+          <option value="contact">If you don’t see a form that applies to your situation, select this</option>  
         </select>
-        <p>If you don’t see a form that applies to your situation, <a href="https://www.ullrichinsurance.com/contact/" target="_blank">click here</a></p>
       </form>
 
       <!-- claim section -->
@@ -260,6 +282,7 @@
           your question to us with this form:
         </p>
         <!-- Put the billing form here in the wordpress site -->
+        <!-- [gravityform id="47" title="true" description="true" ajax="true"] -->
       </span>
 
       <br /><br />
@@ -269,6 +292,8 @@
       >
       <br /><br />
     </div>
+    </div>
+
     <!-- TODO: Write a comment for each function that explains what it does  -->
     <script>
 
@@ -353,10 +378,13 @@
                 "https://www.ullrichinsurance.com/add-a-trailer-external/"
               );
             linkButton.classList.remove("hidden");
+          } else if (selected === "contact") {
+            document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/contact-form");
+            linkButton.classList.remove("hidden");
           } else if (selected === "default") {
             document.getElementById("formLink").setAttribute("href", "#");
             linkButton.classList.add("hidden");
-          }
+          } 
           // For home:
         } else {
           let selected =
@@ -387,6 +415,9 @@
                 "https://www.ullrichinsurance.com/cancel-a-home-policy/"
               );
             linkButton.classList.remove("hidden");
+          } else if (selected === "contact") {
+            document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/contact-form");
+            linkButton.classList.remove("hidden");
           } else if (selected === "default") {
             document.getElementById("formLink").setAttribute("href", "#");
             linkButton.classList.add("hidden");
@@ -401,6 +432,7 @@
 
         gridCards.classList.add("hidden");
         autoForm.classList.remove("hidden");
+        document.getElementById("main-content").classList.add("whiteBackground");
         goBack.classList.remove("hidden");
       }
 
@@ -411,6 +443,7 @@
 
         gridCards.classList.add("hidden");
         homeForm.classList.remove("hidden");
+        document.getElementById("main-content").classList.add("whiteBackground");
         goBack.classList.remove("hidden");
       }
 
@@ -421,6 +454,7 @@
 
         gridCards.classList.add("hidden");
         claimsSection.classList.remove("hidden");
+        document.getElementById("main-content").classList.add("whiteBackground");
         goBack.classList.remove("hidden");
       }
 
@@ -429,8 +463,10 @@
         let billingSection = document.getElementById("billingSection");
         let backButton = document.getElementById("backButton");
 
+        
         gridCards.classList.add("hidden");
         billingSection.classList.remove("hidden");
+        document.getElementById("main-content").classList.add("whiteBackground");
         goBack.classList.remove("hidden");
       }
 
@@ -443,7 +479,8 @@
         let billingSection = document.getElementById("billingSection");
         let goBack = document.getElementById("goBack");
         let formLink = document.getElementById("formLink");
-
+        
+        document.getElementById("main-content").classList.remove("whiteBackground");
         gridCards.classList.remove("hidden");
         goBack.classList.add("hidden");
 
