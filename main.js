@@ -81,6 +81,14 @@
             "https://www.ullrichinsurance.com/add-a-trailer-external/"
           );
         linkButton.classList.remove("hidden");
+      } else if (selected === "boat") {
+        document
+          .getElementById("formLink")
+          .setAttribute(
+            "href",
+            "https://www.ullrichinsurance.com/add-a-boat/"
+          );
+        linkButton.classList.remove("hidden");
       } else if (selected === "contact") {
         document.getElementById("formLink").setAttribute("href", "https://www.ullrichinsurance.com/contact-form");
         linkButton.classList.remove("hidden");
